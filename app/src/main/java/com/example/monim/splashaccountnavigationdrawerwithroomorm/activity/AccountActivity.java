@@ -70,6 +70,10 @@ public class AccountActivity extends AppCompatActivity implements ICallBack {
         if ( db.userDao().insert(user) > 0 )
         {
             Intent i = new Intent(AccountActivity.this, MainActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("Email" ,user.getEmail());
+            bundle.putString("Name" ,user.getName());
+            i.putExtras(bundle);
             startActivity(i);
             finish();
         }else
