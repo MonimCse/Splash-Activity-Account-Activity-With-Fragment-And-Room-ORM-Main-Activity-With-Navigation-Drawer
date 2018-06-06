@@ -7,16 +7,20 @@ import android.os.Bundle;
 
 import com.example.monim.splashaccountnavigationdrawerwithroomorm.ICallBack;
 import com.example.monim.splashaccountnavigationdrawerwithroomorm.R;
+import com.example.monim.splashaccountnavigationdrawerwithroomorm.db.AppDatabase;
+import com.example.monim.splashaccountnavigationdrawerwithroomorm.db.entitys.User;
 import com.example.monim.splashaccountnavigationdrawerwithroomorm.fragment.LoginFragment;
 import com.example.monim.splashaccountnavigationdrawerwithroomorm.fragment.RegistrationFragment;
 
 public class AccountActivity extends AppCompatActivity implements ICallBack {
 
+    AppDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
-
+        db = AppDatabase.newInstant(getApplicationContext());
         replaceLoginFragment();
 
     }
@@ -36,4 +40,16 @@ public class AccountActivity extends AppCompatActivity implements ICallBack {
     public void replaceRegistrationFragment() {
         initFragment(RegistrationFragment.newInstant(this));
     }
+
+    @Override
+    public void login(String email, String password) {
+        boolean isLogin = db.userDao().checkLogin(email, password);
+    }
+
+    @Override
+    public void registration(User user) {
+        db.userDao().insert(user);
+    }
+
+
 }

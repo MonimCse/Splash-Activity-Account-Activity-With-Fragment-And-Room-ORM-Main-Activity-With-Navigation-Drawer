@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.monim.splashaccountnavigationdrawerwithroomorm.ICallBack;
@@ -16,7 +17,9 @@ public class LoginFragment extends Fragment {
 
 
     TextView mTvCreateAccount;
-
+    EditText mEdtEmail;
+    EditText mEdtPassword;
+    Button mBtnLogin;
     @SuppressLint("ValidFragment")
     private LoginFragment()
     {
@@ -43,6 +46,17 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mCallback.replaceRegistrationFragment();
+            }
+        });
+
+        mEdtEmail = view.findViewById(R.id.edt_email);
+        mEdtPassword = view.findViewById(R.id.edt_password);
+        mBtnLogin = view.findViewById(R.id.btn_login);
+
+        mBtnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCallback.login(mEdtEmail.getText().toString(),mEdtPassword.getText().toString());
             }
         });
     }

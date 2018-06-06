@@ -57,7 +57,9 @@
         android:textColor="@color/colorAccent"
         android:text="Login Account"
         android:layout_marginRight="16dp"
-        android:padding="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:paddingLeft="16dp"
         android:textSize="17sp"
         android:layout_gravity="right"/>
 
