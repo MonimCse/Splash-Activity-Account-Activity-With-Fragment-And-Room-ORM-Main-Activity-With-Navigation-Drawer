@@ -59,7 +59,7 @@ public class AccountActivity extends AppCompatActivity implements ICallBack {
             finish();
         }else
         {
-            Toast.makeText(getApplicationContext(),"Field",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Fail",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -78,7 +78,7 @@ public class AccountActivity extends AppCompatActivity implements ICallBack {
             finish();
         }else
         {
-            Toast.makeText(getApplicationContext(),"Field",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Fail",Toast.LENGTH_LONG).show();
         }
     }
 
