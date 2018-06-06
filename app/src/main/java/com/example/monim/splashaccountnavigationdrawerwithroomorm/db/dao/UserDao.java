@@ -13,14 +13,14 @@ import java.util.List;
 public interface UserDao {
 
     @Query("Select * from User where email=:email and password=:password")
-    boolean checkLogin(String email,String password);
+    User checkLogin(String email,String password);
 
     @Insert
-    void insert(User user);
+    Long insert(User user);
 
     @Query("Select * from user")
     List<User> getAllUser();
 
     @Delete
-    void delete(User user);
+    int delete(User user);
 }
